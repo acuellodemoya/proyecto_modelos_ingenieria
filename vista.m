@@ -84,11 +84,15 @@ end
 function btn_ft_Callback(hObject, eventdata, handles)
 n=get(handles.num,'string')
 d=get(handles.den,'string')
-num=eval(n)
-den=eval(d)
-p=tf(num,den)
-p=evalc('p')
-set(handles.show_ft,'String',p)
+if(strlength(n) <= 7 && strlength(d) <= 7)
+    num=eval(n)
+    den=eval(d)
+    p=tf(num,den)
+    p=evalc('p')
+    set(handles.show_ft,'String',p)
+else
+    msgbox('El numerador o denominador debe ser menor o igual a grado 2');
+end
 
 function show_ft_Callback(hObject, eventdata, handles)
 
