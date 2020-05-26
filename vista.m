@@ -187,12 +187,12 @@ function btn_ft_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 % Se obtienen los valores, de los campos de texto.
-yn1 = handles.y_n1;%cap1
-yn2 = handles.u_m2; %cap2
-yn = handles.y_n;%res1
-um2 = handles.y_n2;%res2
-um = handles.u_m;  %res3 
-um1 = handles.u_m1;%indl1
+yn1 = handles.y_n1;
+yn2 = handles.u_m2; 
+yn = handles.y_n;
+um2 = handles.y_n2;
+um = handles.u_m;
+um1 = handles.u_m1;
 
 N = [um, um1, yn2];
 handles.num = N;
@@ -642,11 +642,11 @@ function pushbutton15_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 D= handles.den;
 N= handles.num;
-k3k2=roots([(N(2)*N(3))+(N(4)), -((N(2)*D(3))+D(4)-N(4)+(D(2)*N(3))),(D(2)-D(4))]);
+k3k2=roots([D]);
 k1 = (D(2)/N(2));
 k3 = k3k2(1);
 k2 = k3k2(2);
-k4 = (D(4)/N(4));
+k4 = (D/N);
 
 kfinal(1) = k1;
 kfinal(2) = k2;
