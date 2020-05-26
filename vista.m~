@@ -22,7 +22,7 @@ function varargout = vista(varargin)
 
 % Edit the above text to modify the response to help vista
 
-% Last Modified by GUIDE v2.5 23-May-2020 22:21:23
+% Last Modified by GUIDE v2.5 28-Nov-2019 14:38:32
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -74,19 +74,19 @@ varargout{1} = handles.output;
 
 
 
-function y_n_Callback(hObject, eventdata, handles)
-% hObject    handle to y_n (see GCBO)
+function res_1_Callback(hObject, eventdata, handles)
+% hObject    handle to res_1 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hints: get(hObject,'String') returns contents of y_n as text
-%        str2double(get(hObject,'String')) returns contents of y_n as a double
+% Hints: get(hObject,'String') returns contents of res_1 as text
+%        str2double(get(hObject,'String')) returns contents of res_1 as a double
 
-handles.y_n = str2double(get(hObject,'String')); 
+handles.res_1 = str2double(get(hObject,'String')); 
 guidata(hObject,handles);
 % --- Executes during object creation, after setting all properties.
-function y_n_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to y_n (see GCBO)
+function res_1_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to res_1 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 
@@ -98,19 +98,19 @@ end
 
 
 
-function y_n2_Callback(hObject, eventdata, handles)
-% hObject    handle to y_n2 (see GCBO)
+function res_2_Callback(hObject, eventdata, handles)
+% hObject    handle to res_2 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hints: get(hObject,'String') returns contents of y_n2 as text
-%        str2double(get(hObject,'String')) returns contents of y_n2 as a double
-handles.y_n2 = str2double(get(hObject,'String'));
+% Hints: get(hObject,'String') returns contents of res_2 as text
+%        str2double(get(hObject,'String')) returns contents of res_2 as a double
+handles.res_2 = str2double(get(hObject,'String'));
 guidata(hObject,handles);
 
 % --- Executes during object creation, after setting all properties.
-function y_n2_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to y_n2 (see GCBO)
+function res_2_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to res_2 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 
@@ -122,19 +122,19 @@ end
 
 
 
-function y_n1_Callback(hObject, eventdata, handles)
-% hObject    handle to y_n1 (see GCBO)
+function cap_Callback(hObject, eventdata, handles)
+% hObject    handle to cap (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hints: get(hObject,'String') returns contents of y_n1 as text
-%        str2double(get(hObject,'String')) returns contents of y_n1 as a double
-handles.y_n1 = str2double(get(hObject,'String'));
+% Hints: get(hObject,'String') returns contents of cap as text
+%        str2double(get(hObject,'String')) returns contents of cap as a double
+handles.cap = str2double(get(hObject,'String'));
 guidata(hObject,handles);
 
 % --- Executes during object creation, after setting all properties.
-function y_n1_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to y_n1 (see GCBO)
+function cap_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to cap (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 
@@ -146,19 +146,19 @@ end
 
 
 
-function u_m1_Callback(hObject, eventdata, handles)
-% hObject    handle to u_m1 (see GCBO)
+function ind_1_Callback(hObject, eventdata, handles)
+% hObject    handle to ind_1 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hints: get(hObject,'String') returns contents of u_m1 as text
-%        str2double(get(hObject,'String')) returns contents of u_m1 as a double
-handles.u_m1 = str2double(get(hObject,'String'));
+% Hints: get(hObject,'String') returns contents of ind_1 as text
+%        str2double(get(hObject,'String')) returns contents of ind_1 as a double
+handles.ind_1 = str2double(get(hObject,'String'));
 guidata(hObject,handles);
 
 % --- Executes during object creation, after setting all properties.
-function u_m1_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to u_m1 (see GCBO)
+function ind_1_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to ind_1 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 
@@ -187,16 +187,16 @@ function btn_ft_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 % Se obtienen los valores, de los campos de texto.
-yn1 = handles.y_n1;%cap1
-yn2 = handles.u_m2; %cap2
-yn = handles.y_n;%res1
-um2 = handles.y_n2;%res2
-um = handles.u_m;  %res3 
-um1 = handles.u_m1;%indl1
+cap1 = handles.cap;
+cap2 = handles.cap_2; 
+res1 = handles.res_1;
+res2 = handles.res_2;
+res3 = handles.res_3;   
+ind1 = handles.ind_1;
 
-N = [um, um1, yn2];
+N = [1, -((cap2*res2+cap1*res1)/(cap2*cap1*res2*res1)),-((res3*res2*cap1)+(ind1*res2*cap1)+ind1/(ind1*cap2*res3*res2*cap1)),-(1/(ind1*cap2*cap1*res2))];
 handles.num = N;
-D = [yn, yn1, um2];
+D = [1,(res1*res2*cap1)+(res1*res3*cap1)-(res1*cap2*res3)/(cap2*cap1*res3*res2*res1), (res1*cap1*res2*res3)-(ind1*res3)-(ind1*res1)-(ind1*res2)/(ind1*cap1*cap2*res1*res2*res3),-((res1+ind1)/(ind1*cap2*cap1*res2*res1))];
 handles.den = D;
 
 ft = tf(N,D);
@@ -488,18 +488,18 @@ function text26_CreateFcn(hObject, eventdata, handles)
 
 
 
-function u_m_Callback(hObject, eventdata, handles)
-% hObject    handle to u_m (see GCBO)
+function res_3_Callback(hObject, eventdata, handles)
+% hObject    handle to res_3 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hints: get(hObject,'String') returns contents of u_m as text
-%        str2double(get(hObject,'String')) returns contents of u_m as a double
-handles.u_m = str2double(get(hObject,'String')); 
+% Hints: get(hObject,'String') returns contents of res_3 as text
+%        str2double(get(hObject,'String')) returns contents of res_3 as a double
+handles.res_3 = str2double(get(hObject,'String')); 
 guidata(hObject,handles);
 % --- Executes during object creation, after setting all properties.
-function u_m_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to u_m (see GCBO)
+function res_3_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to res_3 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 
@@ -511,19 +511,19 @@ end
 
 
 
-function u_m2_Callback(hObject, eventdata, handles)
-% hObject    handle to u_m2 (see GCBO)
+function cap_2_Callback(hObject, eventdata, handles)
+% hObject    handle to cap_2 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% Hints: get(hObject,'String') returns contents of u_m2 as text
-%        str2double(get(hObject,'String')) returns contents of u_m2 as a double
-handles.u_m2 = str2double(get(hObject,'String')); 
+% Hints: get(hObject,'String') returns contents of cap_2 as text
+%        str2double(get(hObject,'String')) returns contents of cap_2 as a double
+handles.cap_2 = str2double(get(hObject,'String')); 
 guidata(hObject,handles);
 
 % --- Executes during object creation, after setting all properties.
-function u_m2_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to u_m2 (see GCBO)
+function cap_2_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to cap_2 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
 
@@ -692,6 +692,7 @@ N= handles.num;
 SS = ss(A,B,C,D);
 
 
+set(handles.edit25,'String',[A,B,C,D] = tf2ss(N,K));
 set(handles.edit24,'String',matlab.unittest.diagnostics.ConstraintDiagnostic.getDisplayableString(SS));
 
 
