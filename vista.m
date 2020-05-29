@@ -22,7 +22,7 @@ function varargout = vista(varargin)
 
 % Edit the above text to modify the response to help vista
 
-% Last Modified by GUIDE v2.5 23-May-2020 22:21:23
+% Last Modified by GUIDE v2.5 27-May-2020 15:40:03
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -266,9 +266,9 @@ poles = roots(handles.den); %guardo los polos en una variable
 x = find(poles > 0); % busco si existe un elemento en los polos que sea mayor que 0
 tam = length(x); % guardo el tamaño del vector donde guarde las posiciones de los  elementos que sean mayor a 0 en los  polos
 if(tam == 0)  % si el tam es mayor a 0 determinamos que existe un polo positivo lo cual determina que el sistea es inestable
-   warndlg('el sistema es estable'); %creamos una alerta con el mensaje
+   msgbox('el sistema es estable'); %creamos una alerta con el mensaje
 else
-    warndlg('el sistema es inestable'); 
+    msgbox('el sistema es inestable'); 
 end
 
 % --- Executes on button press in btn_gra_r.
@@ -788,3 +788,17 @@ function edit25_CreateFcn(hObject, eventdata, handles)
 % hObject    handle to edit25 (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    empty - handles not created until after all CreateFcns called
+
+
+% --- Executes on button press in pushbutton17.
+function pushbutton17_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton17 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --- Executes on button press in pushbutton20.
+function pushbutton20_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton20 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
